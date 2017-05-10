@@ -2,13 +2,13 @@
 [![Build Status](https://travis-ci.org/dellemc-symphony/root-parent.svg?branch=master)](https://travis-ci.org/dellemc-symphony/root-parent)
 # root-parent
 ## Description
-This repository contains all the repository information for Maven Central plus the configuration and properties for maven-antrun, JaCoCo, docker-maven, maven-failsafe, maven-surefire, etc.
+This repository contains all repository information for Maven Central as well as the configuration and properties for Maven AntRun, Java Code Coverage Library, Maven Docker, Maven Failsafe, Maven Surefire, and so on.
 ## Before you begin
-Make sure the following is installed:
-```
-Apache Maven 3.0.5+
-Java Development Kit(version 8)
-```
+Verify that the following tools are installed:
+
+* Apache Maven 3.0.5+
+* Java Development Kit (version 8)
+
 ## Building
 Run the following command to build this project:
 ```bash
@@ -16,12 +16,11 @@ mvn clean install
 ```
 ## Contributing
 Project Symphony is a collection of services and libraries housed at [GitHub][github].
-Contribute code and make submissions at the relevant GitHub repository level.
 
-See [our documentation][contributing] for details on how to contribute.
+Contribute code and make submissions at the relevant GitHub repository level. See [our documentation][contributing] for details on how to contribute.
 
 ## Community
-Reach out to us on the Slack [#symphony][slack] channel. Request an invite at [{code}Community][codecommunity].
+Reach out to us on the Slack [#symphony][slack] channel by requesting an invite at [{code}Community][codecommunity].
 
 You can also join [Google Groups][googlegroups] and start a discussion.
  
