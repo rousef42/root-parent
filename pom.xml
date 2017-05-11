@@ -1,5 +1,9 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+<!--
+    Copyright (c) 2017 Dell Inc. or its subsidiaries.  All Rights Reserved.
+    Dell EMC Confidential/Proprietary Information
+ -->
 
     <groupId>com.dell.cpsd</groupId>
     <artifactId>root-parent</artifactId>
@@ -9,11 +13,6 @@
     <name>Parent Project</name>
     <description>Parent pom for Dell CPSD Symphony</description>
     <url>https://github.com/dellemc-symphony/root-parent</url>
-
-<!--
-    Copyright (c) 2017 Dell Inc. or its subsidiaries.  All Rights Reserved.
-    Dell EMC Confidential/Proprietary Information
- -->
 	
     <licenses>
         <license>
@@ -438,6 +437,21 @@
             <properties>
                 <skipSigning>false</skipSigning>
             </properties>
+        </profile>
+        <profile>
+            <id>pubish-root</id>
+            <activation>
+                <property>
+                    <name>publish-root</name>
+                </property>
+            </activation>
+            <distributionManagement>
+                <repository>
+                    <name>bintray</name>
+                    <id>bintray-dell-emc-cpsd-git-hub</id>
+                    <url>http://api.bintray.com/maven/dell-emc-cpsd/maven-central-prepare/initial-package</url>
+                </repository>
+            </distributionManagement>
         </profile>
     </profiles>
 </project>
