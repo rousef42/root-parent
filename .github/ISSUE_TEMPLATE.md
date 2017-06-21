@@ -7,7 +7,7 @@ that exercises the functionality in question.
 
 Direct any questions to our [#symphony][slack] channel or [Google Groups][googlegroups]
 
-Mark an [X] and fill in all items that relate to your issue and environment:
+Please mark with an [X] and fill in all items that relate to your issue and environment:
 
 -->
 
