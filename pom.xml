@@ -455,7 +455,7 @@
             </properties>
         </profile>
         <profile>
-            <id>pubish-root</id>
+            <id>publish-root</id>
             <activation>
                 <property>
                     <name>publish-root</name>
@@ -470,7 +470,7 @@
             </distributionManagement>
         </profile>
         <profile>
-            <id>pubish-bintray-git-hub</id>
+            <id>publish-bintray-git-hub</id>
             <activation>
                 <property>
                     <name>publish-root</name>
