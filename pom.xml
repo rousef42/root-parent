@@ -7,7 +7,7 @@
 
     <groupId>com.dell.cpsd</groupId>
     <artifactId>root-parent</artifactId>
-    <version>0.2.4</version>
+    <version>0.2.5</version>
     <packaging>pom</packaging>
 
     <name>Parent Project</name>
@@ -64,13 +64,35 @@
 
     <distributionManagement>
         <repository>
-            <name>bintray</name>
-            <id>bintray-dell-emc-cpsd-git-hub</id>
-            <url>http://api.bintray.com/maven/dell-emc-cpsd/git-hub/initial-package</url>
+            <id>vce.release</id>
+            <name>vce.release</name>
+            <url>http://repo.vmo.lab:8080/artifactory/libs-release-local</url>
         </repository>
+        <snapshotRepository>
+            <id>vce.snapshot</id>
+            <name>vce.snapshot</name>
+            <url>http://repo.vmo.lab:8080/artifactory/libs-snapshot-local</url>
+            <uniqueVersion>true</uniqueVersion>
+        </snapshotRepository>
     </distributionManagement>
 
     <repositories>
+        <repository>
+          <id>build-repos</id>
+          <name>build-repos</name>
+          <url>http://repo.vmo.lab:8080/artifactory/build-repos</url>
+          <snapshots>
+              <enabled>false</enabled>
+          </snapshots>
+        </repository>
+        <repository>
+          <id>vce.snapshot</id>
+          <name>vce.snapshot</name>
+          <url>http://repo.vmo.lab:8080/artifactory/libs-snapshot-local</url>
+          <snapshots>
+              <enabled>true</enabled>
+          </snapshots>
+        </repository>
         <repository>
             <name>bintray-internal</name>
             <id>bintray-dell-emc-cpsd-internal</id>
@@ -89,6 +111,19 @@
         </repository>
     </repositories>
     <pluginRepositories>
+        <pluginRepository>
+          <id>build-repos</id>
+          <name>build-repos</name>
+          <url>http://repo.vmo.lab:8080/artifactory/build-repos</url>
+          <snapshots>
+              <enabled>false</enabled>
+          </snapshots>
+        </pluginRepository>
+        <pluginRepository>
+            <id>vce.plugins.snapshots</id>
+            <name>plugins-snapshot</name>
+            <url>http://repo.vmo.lab:8080/artifactory/libs-snapshot-local</url>
+        </pluginRepository>
         <pluginRepository>
             <name>bintray-plugins</name>
             <id>bintray-dell-emc-cpsd-internal-plugin</id>
@@ -376,6 +411,28 @@
                                 </target>
                             </configuration>
                         </execution>
+                        <execution>
+                            <id>Upload Docker Tar File</id>
+                            <phase>deploy</phase>
+                            <goals>
+                                <goal>run</goal>
+                            </goals>
+                            <configuration>
+                                <target name="upload_docker_tar_file" if="uploadDockerTar">
+                                    <echo>Uploading compressed docker tar file ${dockerImage.org}-${dockerImage.service}.tar.gz</echo>
+                                    <echo>to the docker tar repository ${docker.tar.repository}</echo>
+                                    <exec executable="curl">
+                                        <arg value="-i"/>
+                                        <arg value="-v"/>
+                                        <arg value="-X"/>
+                                        <arg value="PUT"/>
+                                        <arg value="--upload-file"/>
+                                        <arg value="${dockerImage.org}-${project.artifactId}.tar.gz"/>
+                                        <arg value="${docker.tar.repository}/${dockerImage.org}-${project.artifactId}.tar.gz"/>
+                                   </exec>
+                                </target>
+                            </configuration>
+                        </execution>
                         <!-- This execution must come last as it deletes images used in previous steps. -->
                         <execution>
                             <id>delete_docker_images</id>
@@ -443,6 +500,7 @@
             <activation>
                 <property>
                     <name>publish-root</name>
+
                 </property>
             </activation>
             <distributionManagement>
@@ -450,6 +508,7 @@
                     <name>bintray</name>
                     <id>bintray-dell-emc-cpsd-git-hub</id>
                     <url>http://api.bintray.com/maven/dell-emc-cpsd/maven-central-prepare/initial-package</url>
+
                 </repository>
             </distributionManagement>
         </profile>

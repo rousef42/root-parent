@@ -1,50 +1,58 @@
 pipeline {
     agent {
-        node{
+        node {
             label 'maven-builder'
             customWorkspace "workspace/${env.JOB_NAME}"
-            }
+        }
     }
     environment {
         GITHUB_TOKEN = credentials('git-02')
     }
     options {
+        skipDefaultCheckout()
         buildDiscarder(logRotator(artifactDaysToKeepStr: '30', artifactNumToKeepStr: '5', daysToKeepStr: '30', numToKeepStr: '5'))
         timestamps()
+        disableConcurrentBuilds()
     }
     tools {
         maven 'linux-maven-3.3.9'
         jdk 'linux-jdk1.8.0_102'
     }
     stages {
+        stage('Checkout') {
+            steps {
+                doCheckout()
+	    }
+	}
         stage('Compile') {
             steps {
-                sh "mvn install"
+                sh "mvn clean install -Dmaven.repo.local=.repo -DskipTests=true -DskipITs=true"
             }
         }
         stage('Unit Testing') {
             steps {
-                sh "mvn test"
+                sh "mvn verify -Dmaven.repo.local=.repo"
             }
         }
         stage('Deploy') {
-            when {
-                expression {
-                    return env.BRANCH_NAME ==~ /develop|release\/.*/
-                }
-            }
             steps {
-                sh "mvn clean deploy"
+                sh "mvn deploy -Dmaven.repo.local=.repo -DskipTests=true -DskipITs=true"
             }
         }
         stage('NexB Scan') {
             steps {
+                sh 'rm -rf .repo'
                 doNexbScanning()
             }
         }
         stage('Third Party Audit') {
             steps {
                 doThirdPartyAudit()
+            }
+        }
+        stage('PasswordScan') {
+            steps {
+                doPwScan()
             }
         }
         stage('Github Release') {
@@ -54,22 +62,14 @@ pipeline {
         }
     }
     post {
-        always{
-            cleanWorkspace()
+        always {
+            cleanWorkspace()   
         }
         success {
-            emailext attachLog: true,
-                body: 'Pipeline job ${JOB_NAME} success. Build URL: ${BUILD_URL}',
-                recipientProviders: [[$class: 'CulpritsRecipientProvider']],
-                subject: 'SUCCESS: Jenkins Job- ${JOB_NAME} Build No- ${BUILD_NUMBER}',
-                to: 'pebuildrelease@vce.com'
+            successEmail()
         }
         failure {
-            emailext attachLog: true,
-                body: 'Pipeline job ${JOB_NAME} failed. Build URL: ${BUILD_URL}',
-                recipientProviders: [[$class: 'CulpritsRecipientProvider'], [$class: 'DevelopersRecipientProvider'], [$class: 'FailingTestSuspectsRecipientProvider'], [$class: 'UpstreamComitterRecipientProvider']],
-                subject: 'FAILED: Jenkins Job- ${JOB_NAME} Build No- ${BUILD_NUMBER}',
-                to: 'pebuildrelease@vce.com'
+            failureEmail()
         }
     }
 }
