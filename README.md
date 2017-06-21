@@ -14,7 +14,6 @@ This is the root-parent project, which contains all the repository information f
 ## Documentation
 The documentation is accessed through [dellemc-symphony.readthedocs.io][documentation]
 
-=======
 This repository contains all repository information for Maven Central as well as the configuration and properties for Maven AntRun, Java Code Coverage Library, Maven Docker, Maven Failsafe, Maven Surefire, and so on.
 
 ## Before you begin

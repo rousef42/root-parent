@@ -55,6 +55,7 @@ pipeline {
                 doPwScan()
             }
         }
+
         stage('Github Release') {
             steps {
                 githubRelease()

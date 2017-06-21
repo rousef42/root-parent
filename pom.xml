@@ -77,7 +77,6 @@
 
     <repositories>
         <repository>
-
             <name>bintray-github</name>
             <id>bintray-dell-emc-cpsd-git-hub</id>
             <url>http://dl.bintray.com/dell-emc-cpsd/git-hub</url>
