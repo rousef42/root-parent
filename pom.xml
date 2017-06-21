@@ -7,7 +7,7 @@
 
     <groupId>com.dell.cpsd</groupId>
     <artifactId>root-parent</artifactId>
-    <version>0.2.5</version>
+    <version>0.2.6-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <name>Parent Project</name>
@@ -53,45 +53,37 @@
         <skipJavadoc>true</skipJavadoc>
         <skipJavasource>true</skipJavasource>
 
-        <!-- Plugin Versions --> 
-        <exec-maven-plugin-version>1.4.0</exec-maven-plugin-version>
-        <maven-antrun-plugin.version>1.8</maven-antrun-plugin.version>
+        <!-- 3rd Party Plugin Versions --> 
         <jacoco-maven-plugin.version>0.7.9</jacoco-maven-plugin.version> 
         <docker-maven-plugin.version>0.4.13</docker-maven-plugin.version>
+
+        <!-- Maven Plugin Versions --> 
+        <maven-gpg-plugin.version>1.5</maven-gpg-plugin.version>
+        <exec-maven-plugin-version>1.4.0</exec-maven-plugin-version>
+        <maven-antrun-plugin.version>1.8</maven-antrun-plugin.version>
+        <maven-source-plugin.version>2.2.1</maven-source-plugin.version>
+        <maven-javadoc-plugin.version>2.9.1</maven-javadoc-plugin.version>
         <maven-failsafe-plugin.version>2.15</maven-failsafe-plugin.version> 
         <maven-surefire-plugin.version>2.19.1</maven-surefire-plugin.version>	 
     </properties>
 
     <distributionManagement>
-        <repository>
-            <id>vce.release</id>
-            <name>vce.release</name>
-            <url>http://repo.vmo.lab:8080/artifactory/libs-release-local</url>
-        </repository>
         <snapshotRepository>
-            <id>vce.snapshot</id>
-            <name>vce.snapshot</name>
-            <url>http://repo.vmo.lab:8080/artifactory/libs-snapshot-local</url>
-            <uniqueVersion>true</uniqueVersion>
+            <name>jfrog-snapshots</name>
+            <id>oss-jfrog-artifactory-snapshots</id>
+            <url>https://oss.jfrog.org/artifactory/oss-snapshot-local</url>
         </snapshotRepository>
     </distributionManagement>
 
     <repositories>
         <repository>
-          <id>build-repos</id>
-          <name>build-repos</name>
-          <url>http://repo.vmo.lab:8080/artifactory/build-repos</url>
-          <snapshots>
-              <enabled>false</enabled>
-          </snapshots>
-        </repository>
-        <repository>
-          <id>vce.snapshot</id>
-          <name>vce.snapshot</name>
-          <url>http://repo.vmo.lab:8080/artifactory/libs-snapshot-local</url>
-          <snapshots>
-              <enabled>true</enabled>
-          </snapshots>
+
+            <name>bintray-github</name>
+            <id>bintray-dell-emc-cpsd-git-hub</id>
+            <url>http://dl.bintray.com/dell-emc-cpsd/git-hub</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
         </repository>
         <repository>
             <name>bintray-internal</name>
@@ -102,32 +94,27 @@
             </snapshots>
         </repository>
         <repository>
-            <name>bintray-github</name>
-            <id>bintray-dell-emc-cpsd-git-hub</id>
-            <url>http://dl.bintray.com/dell-emc-cpsd/git-hub</url>
+            <name>jfrog-snapshots</name>
+            <id>oss-jfrog-artifactory-snapshots</id>
+            <url>https://oss.jfrog.org/artifactory/oss-snapshot-local</url>
             <snapshots>
-                <enabled>false</enabled>
+                <enabled>true</enabled>
             </snapshots>
         </repository>
     </repositories>
     <pluginRepositories>
         <pluginRepository>
-          <id>build-repos</id>
-          <name>build-repos</name>
-          <url>http://repo.vmo.lab:8080/artifactory/build-repos</url>
-          <snapshots>
-              <enabled>false</enabled>
-          </snapshots>
-        </pluginRepository>
-        <pluginRepository>
-            <id>vce.plugins.snapshots</id>
-            <name>plugins-snapshot</name>
-            <url>http://repo.vmo.lab:8080/artifactory/libs-snapshot-local</url>
-        </pluginRepository>
-        <pluginRepository>
-            <name>bintray-plugins</name>
-            <id>bintray-dell-emc-cpsd-internal-plugin</id>
+            <name>bintray-internal-plugins</name>
+            <id>bintray-dell-emc-cpsd-internal</id>
             <url>http://dl.bintray.com/dell-emc-cpsd/internal</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+        <pluginRepository>
+            <name>bintray-git-hub-plugins</name>
+            <id>bintray-dell-emc-cpsd-git-hub</id>
+            <url>http://dl.bintray.com/dell-emc-cpsd/git-hub</url>
             <snapshots>
                 <enabled>false</enabled>
             </snapshots>
@@ -140,7 +127,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-source-plugin</artifactId>
-                    <version>2.2.1</version>
+                    <version>${maven-source-plugin.version}</version>
                     <executions>
                         <execution>
                             <id>attach-sources</id>
@@ -157,7 +144,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-javadoc-plugin</artifactId>
-                    <version>2.9.1</version>
+                    <version>${maven-javadoc-plugin.version}</version>
                     <executions>
                         <execution>
                             <id>attach-javadocs</id>
@@ -174,7 +161,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-gpg-plugin</artifactId>
-                    <version>1.5</version>
+                    <version>${maven-gpg-plugin.version}</version>
                     <executions>
                         <execution>
                             <id>sign-artifacts</id>
@@ -192,33 +179,6 @@
                     <groupId>com.spotify</groupId>
                     <artifactId>docker-maven-plugin</artifactId>
                     <version>${docker-maven-plugin.version}</version>
-<!-- https://github.com/spotify/docker-maven-plugin
- Docker plugin is configured generically here in the root parent but
- application POMs still need to reference the plugin.
-
- The configuration of this plugin binds to the following maven phases.
-
- Package
-    By default a docker image will be built in the package phase when the skipDocker property is set to false.
-
- Deploy
-    Docker Tag
-    If the docker.registry property is set the previously built docker image will be tagged with the following
-        ${docker.registry}/${dockerImage.org}-${project.artifactId}:latest
-        ${docker.registry}/${dockerImage.org}-${project.artifactId}:${dockerImage.tag}
-    Docker Push
-        Once the images are tagged they both will be pushed to the given docker.registry.
- Example Launch
-        mvn clean deploy -DskipDocker=false -Ddocker.registry=docker-dev-local.art.local -DdockerImage.org=cpsd-ess
-
- You can augment configuration specific to your application's Docker image
- by including a <configuration> section, such as
-
- <configuration>
-     <env>
-         <SPRING_CONFIG_URI>http://config-server:8888/config-server/</SPRING_CONFIG_URI>
-     </env>
-</configuration> -->
                     <executions>
                         <execution>
                             <id>build-image</id>
@@ -500,7 +460,6 @@
             <activation>
                 <property>
                     <name>publish-root</name>
-
                 </property>
             </activation>
             <distributionManagement>
@@ -508,7 +467,21 @@
                     <name>bintray</name>
                     <id>bintray-dell-emc-cpsd-git-hub</id>
                     <url>http://api.bintray.com/maven/dell-emc-cpsd/maven-central-prepare/initial-package</url>
-
+                </repository>
+            </distributionManagement>
+        </profile>
+        <profile>
+            <id>pubish-bintray-git-hub</id>
+            <activation>
+                <property>
+                    <name>publish-root</name>
+                </property>
+            </activation>
+            <distributionManagement>
+                <repository>
+                    <name>bintray-releases</name>
+                    <id>bintray-dell-emc-cpsd-git-hub</id>
+                    <url>http://api.bintray.com/maven/dell-emc-cpsd/git-hub/initial-package</url>
                 </repository>
             </distributionManagement>
         </profile>
