@@ -13,9 +13,13 @@ Please mark with an [X] and fill in all items that relate to your issue:
 -->
 
 - [ ] I have read the [CONTRIBUTION GUIDE][contributing]
+
 - [ ] This is a bug
+
 - [ ] This is a feature request
+
 - [ ] This is a syntax/style fix
+
 - [ ] This is an improvement to code quality
 
 ---
