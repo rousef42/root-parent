@@ -8,7 +8,7 @@ This section will not appear in the preview.
 4. Label the pull request where appropriate: bug, duplicate, enhancement, etc.
 5. Submit your request with a short title and a clear explanation of the changes.
 
-Please mark an [X] and fill in all items that relate to your issue:
+Please mark with an [X] and fill in all items that relate to your issue:
 
 -->
 
@@ -20,6 +20,12 @@ Please mark an [X] and fill in all items that relate to your issue:
 
 ---
 
-Provide a clear description of changes:
+**Please describe your changes below:**  
+(Note: A clear description of changes is required to approve any Pull Requests)
+
+_"Changed the implementation for verification because..."_
+
+
+
 
 [contributing]: http://dellemc-symphony.readthedocs.io/en/latest/contributingtosymphony.html
