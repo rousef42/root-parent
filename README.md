@@ -1,8 +1,6 @@
 [![License](https://img.shields.io/badge/License-EPL%201.0-red.svg)](https://opensource.org/licenses/EPL-1.0)
 [![Build Status](https://travis-ci.org/dellemc-symphony/root-parent.svg?branch=master)](https://travis-ci.org/dellemc-symphony/root-parent)
-
 [![Slack](http://community.codedellemc.com/badge.svg)](https://codecommunity.slack.com/messages/symphony)
-=======
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.dell.cpsd/root-parent/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.dell.cpsd/root-parent)
 
 # root-parent
