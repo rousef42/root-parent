@@ -14,15 +14,21 @@ Mark an [X] and fill in all items that relate to your issue and environment:
 - [ ] I have read the [CONTRIBUTION GUIDE][contributing]
 
 - [ ] This is a bug
+
 - [ ] This is a feature request
+
 - [ ] This is a syntax/style fix
+
 - [ ] This is an improvement to code quality
 
 ---
 
 - [ ] I am having issues installing the binaries
+
 - [ ] I am having issues building
+
 - [ ] I am having issues with dependencies
+
 - [ ] I want to report a bug report that isn't covered here
 
 ---
@@ -40,7 +46,11 @@ I am using the following additional Symphony services and their snapshot/release
 
 ---
 
-Provide a clear description of the issue:
+**Please provide a clear description of the issue:**  
+(Note: A clear description is required in order to investigate)
+
+_"I am having an issue with X because..."_
+
 [contributing]: http://dellemc-symphony.readthedocs.io/en/latest/contributingtosymphony.html
 [slack]: https://codecommunity.slack.com/messages/symphony
 [googlegroups]: https://groups.google.com/forum/#!forum/dellemc-symphony
