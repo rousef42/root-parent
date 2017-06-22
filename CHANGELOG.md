@@ -8,9 +8,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/)
 ### Added
  - Creation of the initial Changelog file
 ### Changed
- - Modification of build stage and procedure
+ - Modification to build stage and procedure
  - Update to readme format and additional context
- - Update plugin versions for Maven
+ - Update the plugin versions for Maven
  - Change of repository name and location to public [oss.jfrog.org](oss.jfrog.org)
  - Change of bintray usage to allow for snapshot deployments
  - Additional configuration and execution for the allowance of TAR file uploads of Docker images
