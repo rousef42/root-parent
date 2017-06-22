@@ -8,28 +8,27 @@ and this project adheres to [Semantic Versioning](http://semver.org/)
 ### Added
  - Creation of the initial Changelog file
 ### Changed
- - Modification of build stage and steps
- - Update to Readme format and additonal context
+ - Modification of build stage and procedure
+ - Update to readme format and additional context
  - Update plugin versions for Maven
- - Change of repository name and location to public oss.jfrog.org
+ - Change of repository name and location to public [oss.jfrog.org](oss.jfrog.org)
  - Change of bintray usage to allow for snapshot deployments
- - Additional configuration and execution for the allowance of Tar file uploads of dockerimages
- - Additional settings to publish to mavenl central for released binaries
+ - Additional configuration and execution for the allowance of TAR file uploads of Docker images
+ - Additional settings to publish to Maven Central for released binaries
  
 ### Removed
- - Removal of bintray usage for internally generated artifacts as all binaries will be created in OpenSource
- - Removed Unrequired Docker configuration in pom file
+ - Removal of bintray usage for internally generated artifacts as all binaries will be created in opensource
+ - Removal of unrequired Docker configuration in the POM file
 
 ## [0.2.4] - 2017-05-05
 ### Added
- - Copyright information to cpsd created scripts.
+ - Copyright information to CPSD created scripts
  - Additional distribution management location for internally generated binaries to be published to public domain
 
 ### Removed
- - Removed OSS sonatype staging maven location from Repository Management section
- - Removed upload of docker tar file execution strategy
+ - Removed OSS sonatype staging Maven location from repository management
+ - Removed upload of Docker TAR file execution strategy
  
-
 ## 0.2.3 - 2017-05-05
 ### Added
  - Initial addition of the distribution management and properties
