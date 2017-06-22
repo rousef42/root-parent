@@ -6,9 +6,6 @@
 # root-parent
 
 ## Description
-
-This is the root-parent project.
-
 This repository contains all repository information for Maven Central as well as the configuration and properties for Maven AntRun, Java Code Coverage Library, Maven Docker, Maven Failsafe, Maven Surefire, and so on.
 
 ## Documentation
