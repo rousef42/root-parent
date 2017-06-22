@@ -2,6 +2,7 @@
 [![Build Status](https://travis-ci.org/dellemc-symphony/root-parent.svg?branch=master)](https://travis-ci.org/dellemc-symphony/root-parent)
 [![Slack](http://community.codedellemc.com/badge.svg)](https://codecommunity.slack.com/messages/symphony)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.dell.cpsd/root-parent/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.dell.cpsd/root-parent)
+[![Semver](http://img.shields.io/SemVer/2.0.0.png)](http://semver.org/spec/v2.0.0.html)
 
 # root-parent
 
