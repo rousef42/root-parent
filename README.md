@@ -7,12 +7,12 @@
 
 ## Description
 
-This is the root-parent project, which contains all the repository information for Maven Central plus the configuration and properties for maven-antrun, JaCoCo, docker-maven, maven-failsafe, maven-surefire, etc.
-
-## Documentation
-The documentation is accessed through [dellemc-symphony.readthedocs.io][documentation]
+This is the root-parent project.
 
 This repository contains all repository information for Maven Central as well as the configuration and properties for Maven AntRun, Java Code Coverage Library, Maven Docker, Maven Failsafe, Maven Surefire, and so on.
+
+## Documentation
+You can find additional documentation for Project Symphony at [dellemc-symphony.readthedocs.io](https://dellemc-symphony.readthedocs.io).
 
 ## Before you begin
 Verify that the following tools are installed:
