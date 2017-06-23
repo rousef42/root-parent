@@ -8,7 +8,7 @@ if (env.BRANCH_NAME ==~ /stable.*/) {
 pipeline {
     agent {
         node {
-            label 'maven-builder'
+            label 'builder-04'
             customWorkspace "workspace/${env.JOB_NAME}"
         }
     }
