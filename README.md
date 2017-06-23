@@ -7,9 +7,9 @@
 # root-parent
 
 ## Description
-This repository is a convenience project and contains important base configuration settings and properties that other Project Symphony repositories require. 
+This repository contains important base configuration settings and properties required by other Project Symphony repositories. 
 
-It is included by default in every new Project Symphony repository. Configurations included but not limited to (see pom.xml):
+It is included by default in every new Project Symphony repository and includes (but is not limited to) the following configurations:
 - Maven AntRun
 - Java Code Coverage Library
 - Maven Docker
@@ -19,6 +19,8 @@ It is included by default in every new Project Symphony repository. Configuratio
 - Maven Javadoc
 - Maven GPG
 - Repository information for Maven Central
+
+For configurations for a specific repository, refer to pom.xml.
 
 ## Documentation
 You can find additional documentation for Project Symphony at [dellemc-symphony.readthedocs.io](https://dellemc-symphony.readthedocs.io).
