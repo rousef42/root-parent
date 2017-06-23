@@ -1,3 +1,8 @@
+DEPLOY_PROFILE = ""
+if (env.BRANCH_NAME ==~ /stable.*/) {
+    DEPLOY_PROFILE = "-Ppublish-release"
+}
+
 pipeline {
     agent {
         node {
@@ -22,21 +27,21 @@ pipeline {
         stage('Checkout') {
             steps {
                 doCheckout()
+	        }
 	    }
-	}
         stage('Compile') {
             steps {
                 sh "mvn clean install -Dmaven.repo.local=.repo -DskipTests=true -DskipITs=true"
             }
         }
-        stage('Unit Testing') {
+        stage('Junit Testing') {
             steps {
                 sh "mvn verify -Dmaven.repo.local=.repo"
             }
         }
         stage('Deploy') {
             steps {
-                sh "mvn deploy -Dmaven.repo.local=.repo -DskipTests=true -DskipITs=true"
+                sh "mvn deploy ${DEPLOY_PROFILE} -Dmaven.repo.local=.repo -DskipTests=true -DskipITs=true"
             }
         }
         stage('NexB Scan') {
