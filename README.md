@@ -9,12 +9,15 @@
 ## Description
 This repository is a convenience project and contains important base configuration settings and properties that other Project Symphony repositories require. 
 
-It is included by default in every new Project Symphony repository, and covers the following:
+It is included by default in every new Project Symphony repository. Configurations included but not limited to (see pom.xml):
 - Maven AntRun
 - Java Code Coverage Library
 - Maven Docker
 - Maven Failsafe 
 - Maven Surefire
+- Maven Gitflow
+- Maven Javadoc
+- Maven GPG
 - Repository information for Maven Central
 
 ## Documentation
