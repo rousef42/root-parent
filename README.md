@@ -7,9 +7,9 @@
 # root-parent
 
 ## Description
-This repository is a convenience project, which contains all the important base configuration settings and properties that other Symphony repositories require. 
+This repository is a convenience project and contains important base configuration settings and properties that other Project Symphony repositories require. 
 
-It is included by default in every new Symphony repo, and covers the following:
+It is included by default in every new Project Symphony repository, and covers the following:
 - Maven AntRun
 - Java Code Coverage Library
 - Maven Docker
