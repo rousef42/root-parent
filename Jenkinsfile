@@ -1,7 +1,7 @@
 DEPLOY_OPTIONS = ""
 if (env.BRANCH_NAME ==~ /stable.*/) {
     withCredentials([string(credentialsId: 'GPG-Dell-Key', variable: 'GPG_PASSPHRASE')]) {
-        DEPLOY_OPTIONS = "-Ppublish-release -Dgpg.passphrase=${GPG_PASSPHRASE} -DskipJavadoc=false -DskipJavasource=false"
+        DEPLOY_OPTIONS = "-Ppublish-release -Dgpg.passphrase=${GPG_PASSPHRASE} -Dkeyname=2048R/73BD7C5F -DskipJavadoc=false -DskipJavasource=false"
     }
 }
 
