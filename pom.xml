@@ -28,6 +28,36 @@
                         <organization>com.dell.cpsd</organization>
                         <organizationUrl>https://github.com/rousef42</organizationUrl>
                 </developer>
+                 <developer>
+                        <name>Desmond Collins</name>
+                        <email>desmond.collins@dell.com</email>
+                        <organization>com.dell.cpsd</organization>
+                        <organizationUrl>https://github.com/giddyelysium</organizationUrl>
+                </developer>
+                <developer>
+                        <name>Art Beall</name>
+                        <email>arthur.beall@dell.com</email>
+                        <organization>com.dell.cpsd</organization>
+                        <organizationUrl>https://github.com/bealla2</organizationUrl>
+                </developer>
+                <developer>
+                        <name>Jeff Cheng</name>
+                        <email>jeffery.cheng@dell.com</email>
+                        <organization>com.dell.cpsd</organization>
+                        <organizationUrl>https://github.com/jccheng78</organizationUrl>
+                </developer>
+                <developer>
+                        <name>Paul McGrath</name>
+                        <email>paul.mcgrath2@dell.com</email>
+                        <organization>com.dell.cpsd</organization>
+                        <organizationUrl>https://github.com/heypaulmcgrath</organizationUrl>
+                </developer>
+                <developer>
+                        <name>Bheemesh Sannapareddi</name>
+                        <email>b.sannapareddi@dell.com</email>
+                        <organization>com.dell.cpsd</organization>
+                        <organizationUrl>https://github.com/sannab2</organizationUrl>
+                </developer>
         </developers>
 
         <scm>
