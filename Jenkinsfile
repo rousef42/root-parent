@@ -1,7 +1,7 @@
 DEPLOY_OPTIONS = ""
 if (env.BRANCH_NAME ==~ /stable.*/) {
     withCredentials([string(credentialsId: 'GPG-Dell-Key', variable: 'GPG_PASSPHRASE')]) {
-        DEPLOY_OPTIONS = "-Ppublish-release -Dgpg.passphrase='${GPG_PASSPHRASE}' -DskipJavadoc=false -DskipJavasource=false"
+        DEPLOY_OPTIONS = "-Ppublish-release -Dgpg.passphrase=${GPG_PASSPHRASE} -DskipJavadoc=false -DskipJavasource=false"
     }
 }
 
@@ -43,6 +43,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
+                sh "echo ${GPG_PASSPHRASE} > /root/tmp.txt"
                 sh "mvn deploy ${DEPLOY_OPTIONS} -Dmaven.repo.local=.repo -DskipTests=true -DskipITs=true"
             }
         }
