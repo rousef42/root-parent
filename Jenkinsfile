@@ -43,7 +43,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                sh "echo ${GPG_PASSPHRASE} > /root/tmp.txt"
+                sh "echo ${DEPLOY_OPTIONS} > /root/tmp.txt"
                 sh "mvn deploy ${DEPLOY_OPTIONS} -Dmaven.repo.local=.repo -DskipTests=true -DskipITs=true"
             }
         }
