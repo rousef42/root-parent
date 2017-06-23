@@ -8,7 +8,7 @@ if (env.BRANCH_NAME ==~ /stable.*/) {
 pipeline {
     agent {
         node {
-            label 'builder-04'
+            label 'maven-builder'
             customWorkspace "workspace/${env.JOB_NAME}"
         }
     }
@@ -43,7 +43,6 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                sh "echo ${DEPLOY_OPTIONS} > /root/tmp.txt"
                 sh "mvn deploy ${DEPLOY_OPTIONS} -Dmaven.repo.local=.repo -DskipTests=true -DskipITs=true"
             }
         }
