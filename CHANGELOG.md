@@ -11,7 +11,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/)
  - Modification to build stage and procedure
  - Update to readme format and additional context
  - Update the plugin versions for Maven
- - Change of repository name and location to public [oss.jfrog.org](oss.jfrog.org)
+ - Change of snapshot repository name and location to public [oss.jfrog.org/oss-snapshot-local](https://oss.jfrog.org/list/oss-snapshot-local)
+ - Change of release repository name to public [dell-emcs-cpsd/maven-central-prepare](https://dl.bintray.com/dell-emc-cpsd/maven-central-prepare)
  - Change of bintray usage to allow for snapshot deployments
  - Additional configuration and execution for the allowance of TAR file uploads of Docker images
  - Additional settings to publish to Maven Central for released binaries

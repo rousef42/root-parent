@@ -1,483 +1,501 @@
+
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 <!--
     Copyright (c) 2017 Dell Inc. or its subsidiaries.  All Rights Reserved.
  -->
 
-    <groupId>com.dell.cpsd</groupId>
-    <artifactId>root-parent</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
-    <packaging>pom</packaging>
+        <groupId>com.dell.cpsd</groupId>
+        <artifactId>root-parent</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+        <packaging>pom</packaging>
 
-    <name>Parent Project</name>
-    <description>Parent pom for Dell CPSD Symphony</description>
-    <url>https://github.com/dellemc-symphony/root-parent</url>
-	
-    <licenses>
-        <license>
-            <name>Eclipse Public License - v 1.0</name>
-            <url>http://www.eclipse.org/legal/epl-v10.html</url>
-        </license>
-    </licenses>
+        <name>Parent Project</name>
+        <description>Parent pom for Dell CPSD Symphony</description>
+        <url>https://github.com/dellemc-symphony/root-parent</url>
 
-    <developers>
-        <developer>
-            <name>Frank Rouse</name>
-            <email>frank.rouse@dell.com</email>
-            <organization>com.dell.cpsd</organization>
-            <organizationUrl>https://github.com/rousef42</organizationUrl>
-        </developer>
-    </developers>
+        <licenses>
+                <license>
+                        <name>Eclipse Public License - v 1.0</name>
+                        <url>http://www.eclipse.org/legal/epl-v10.html</url>
+                </license>
+        </licenses>
 
-    <scm>
-        <connection>scm:git:https://github.com/dellemc-symphony/root-parent.git</connection>
-        <developerConnection>scm:git:https://github.com/dellemc-symphony/root-parent.git</developerConnection>
-        <url>https://github.com/dellemc-symphony/root-parent/tree/master</url>
-        <tag>HEAD</tag>
-  </scm>
-	
-    <properties>
-        <!-- Build properties -->
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <developers>
+                <developer>
+                        <name>Frank Rouse</name>
+                        <email>frank.rouse@dell.com</email>
+                        <organization>com.dell.cpsd</organization>
+                        <organizationUrl>https://github.com/rousef42</organizationUrl>
+                </developer>
+        </developers>
 
-        <!-- Docker properties-->
-        <skipDocker>false</skipDocker>
-        <use-docker-config-file>false</use-docker-config-file>
-        <dockerImage.service>${project.artifactId}</dockerImage.service>
+        <scm>
+                <connection>scm:git:https://github.com/dellemc-symphony/root-parent.git</connection>
+                <developerConnection>scm:git:https://github.com/dellemc-symphony/root-parent.git</developerConnection>
+                <url>https://github.com/dellemc-symphony/root-parent/tree/master</url>
+                <tag>HEAD</tag>
+        </scm>
 
-        <!-- Maven Central Deploy properties -->
-        <skipSigning>true</skipSigning>
-        <skipJavadoc>true</skipJavadoc>
-        <skipJavasource>true</skipJavasource>
+        <properties>
+                <!-- Build properties -->
+                <maven.compiler.source>1.8</maven.compiler.source>
+                <maven.compiler.target>1.8</maven.compiler.target>
+                <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+                <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-        <!-- 3rd Party Plugin Versions --> 
-        <jacoco-maven-plugin.version>0.7.9</jacoco-maven-plugin.version> 
-        <docker-maven-plugin.version>0.4.13</docker-maven-plugin.version>
+                <!-- Docker properties -->
+                <skipDocker>false</skipDocker>
+                <use-docker-config-file>false</use-docker-config-file>
+                <dockerImage.service>${project.artifactId}</dockerImage.service>
 
-        <!-- Maven Plugin Versions --> 
-        <maven-gpg-plugin.version>1.5</maven-gpg-plugin.version>
-        <exec-maven-plugin-version>1.4.0</exec-maven-plugin-version>
-        <maven-antrun-plugin.version>1.8</maven-antrun-plugin.version>
-        <maven-source-plugin.version>2.2.1</maven-source-plugin.version>
-        <maven-javadoc-plugin.version>2.9.1</maven-javadoc-plugin.version>
-        <maven-failsafe-plugin.version>2.15</maven-failsafe-plugin.version> 
-        <maven-surefire-plugin.version>2.19.1</maven-surefire-plugin.version>	 
-        <external.atlassian.jgitflow.version>1.0-m5.1</external.atlassian.jgitflow.version>
-    </properties>
+                <!-- Maven Central Deploy properties -->
+                <skipSigning>true</skipSigning>
+                <skipJavadoc>true</skipJavadoc>
+                <skipJavasource>true</skipJavasource>
 
-    <distributionManagement>
-        <snapshotRepository>
-            <name>jfrog-snapshots</name>
-            <id>oss-jfrog-artifactory-snapshots</id>
-            <url>https://oss.jfrog.org/artifactory/oss-snapshot-local</url>
-        </snapshotRepository>
-    </distributionManagement>
+                <!-- 3rd Party Plugin Versions -->
+                <jacoco-maven-plugin.version>0.7.9</jacoco-maven-plugin.version>
+                <docker-maven-plugin.version>0.4.13</docker-maven-plugin.version>
 
-    <repositories>
-        <repository>
-            <name>bintray-maven-central-prepare</name>
-            <id>bintray-dell-emc-cpsd-maven-central-prepare</id>
-            <url>http://dl.bintray.com/dell-emc-cpsd/maven-central-prepare</url>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </repository>
-        <repository>
-            <name>jfrog-snapshots</name>
-            <id>oss-jfrog-artifactory-snapshots</id>
-            <url>https://oss.jfrog.org/artifactory/oss-snapshot-local</url>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
-    </repositories>
-    <pluginRepositories>
-        <pluginRepository>
-            <name>bintray-maven-central-prepare</name>
-            <id>bintray-dell-emc-cpsd-maven-central-prepare</id>
-            <url>http://dl.bintray.com/dell-emc-cpsd/maven-central-prepare</url>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </pluginRepository>
-        <pluginRepository>
-            <name>jfrog-snapshots</name>
-            <id>oss-jfrog-artifactory-snapshots</id>
-            <url>https://oss.jfrog.org/artifactory/oss-snapshot-local</url>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </pluginRepository>
-    </pluginRepositories>
+                <!-- Maven Plugin Versions -->
+                <maven-gpg-plugin.version>1.6</maven-gpg-plugin.version>
+                <exec-maven-plugin-version>1.6.0</exec-maven-plugin-version>
+                <maven-antrun-plugin.version>1.8</maven-antrun-plugin.version>
+                <maven-source-plugin.version>3.0.1</maven-source-plugin.version>
+                <maven-javadoc-plugin.version>2.10.4</maven-javadoc-plugin.version>
+                <maven-failsafe-plugin.version>2.15</maven-failsafe-plugin.version>
+                <maven-surefire-plugin.version>2.19.1</maven-surefire-plugin.version>
+                <external.atlassian.jgitflow.version>1.0-m5.1</external.atlassian.jgitflow.version>
+        </properties>
 
-    <build>
-        <pluginManagement>
-            <plugins>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-source-plugin</artifactId>
-                    <version>${maven-source-plugin.version}</version>
-                    <executions>
-                        <execution>
-                            <id>attach-sources</id>
-                            <phase>package</phase>
-                            <goals>
-                                <goal>jar-no-fork</goal>
-                            </goals>
-                        </execution>
-                    </executions>
-                    <configuration>
-                        <skip>${skipJavasource}</skip>
-                    </configuration>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-javadoc-plugin</artifactId>
-                    <version>${maven-javadoc-plugin.version}</version>
-                    <executions>
-                        <execution>
-                            <id>attach-javadocs</id>
-                            <phase>package</phase>
-                            <goals>
-                                <goal>jar</goal>
-                            </goals>
-                        </execution>
-                    </executions>
-                    <configuration>
-                        <skip>${skipJavadoc}</skip>
-                    </configuration>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-gpg-plugin</artifactId>
-                    <version>${maven-gpg-plugin.version}</version>
-                    <executions>
-                        <execution>
-                            <id>sign-artifacts</id>
-                            <phase>verify</phase>
-                            <goals>
-                                <goal>sign</goal>
-                            </goals>
-                        </execution>
-                    </executions>
-                    <configuration>
-                        <skip>${skipSigning}</skip>
-                    </configuration>
-                </plugin>
-                <plugin>
-                    <groupId>com.spotify</groupId>
-                    <artifactId>docker-maven-plugin</artifactId>
-                    <version>${docker-maven-plugin.version}</version>
-                    <executions>
-                        <execution>
-                            <id>build-image</id>
-                            <phase>package</phase>
-                            <goals>
-                                <goal>build</goal>
-                            </goals>
-                            <configuration>
-                                <imageName>${dockerImage.org}-${dockerImage.service}:${dockerImage.tag}</imageName>
-                            </configuration>
-                        </execution>
-                        <execution>
-                            <id>tag-image</id>
-                            <phase>deploy</phase>
-                            <goals>
-                                <goal>tag</goal>
-                            </goals>
-                            <configuration>
-                                <image>${dockerImage.org}-${dockerImage.service}:${dockerImage.tag}</image>
-                                <newName>${docker.registry}/${dockerImage.org}-${dockerImage.service}:${dockerImage.tag}</newName>
-                            </configuration>
-                        </execution>
-                        <execution>
-                            <id>tag-image-latest</id>
-                            <phase>deploy</phase>
-                            <goals>
-                                <goal>tag</goal>
-                            </goals>
-                            <configuration>
-                                <image>${dockerImage.org}-${dockerImage.service}:${dockerImage.tag}</image>
-                                <newName>${docker.registry}/${dockerImage.org}-${dockerImage.service}:latest</newName>
-                            </configuration>
-                        </execution>
-                        <execution>
-                            <id>push-image</id>
-                            <phase>deploy</phase>
-                            <goals>
-                                <goal>push</goal>
-                            </goals>
-                            <configuration>
-                                <imageName>${docker.registry}/${dockerImage.org}-${dockerImage.service}:${dockerImage.tag}</imageName>
-                            </configuration>
-                        </execution>
-                        <execution>
-                            <id>push-image-latest</id>
-                            <phase>deploy</phase>
-                            <goals>
-                                <goal>push</goal>
-                            </goals>
-                            <configuration>
-                                <imageName>${docker.registry}/${dockerImage.org}-${dockerImage.service}:latest</imageName>
-                            </configuration>
-                        </execution>
-                    </executions>
-                </plugin>
-                <plugin>
-                    <groupId>org.jacoco</groupId>
-                    <artifactId>jacoco-maven-plugin</artifactId>
-                    <version>${jacoco-maven-plugin.version}</version>
-                    <executions>
-<!-- Prepares the property pointing to the JaCoCo runtime agent which
- is passed as VM argument when Maven the Surefire plugin is executed. -->
-                        <execution>
-                            <id>pre-unit-test</id>
-                            <goals>
-                                <goal>prepare-agent</goal>
-                            </goals>
-                            <configuration>
-                                <!-- Sets the path to the file which contains the execution data. -->
-                                <destFile>${project.build.directory}/coverage-reports/jacoco-ut.exec</destFile>
-                                <!-- Sets the name of the property containing the settings for JaCoCo runtime agent. -->
-                                <propertyName>surefireArgLine</propertyName>
-                            </configuration>
-                        </execution>
-<!-- Ensures that the code coverage report for unit tests is created after
- unit tests have been run. -->
-                        <execution>
-                            <id>post-unit-test</id>
-                            <phase>test</phase>
-                            <goals>
-                                <goal>report</goal>
-                            </goals>
-                            <configuration>
-                                <!-- Sets the path to the file which contains the execution data. -->
-                                <dataFile>${project.build.directory}/coverage-reports/jacoco-ut.exec</dataFile>
-                                <!-- Sets the output directory for the code coverage report. -->
-                                <outputDirectory>${project.reporting.outputDirectory}/jacoco-ut</outputDirectory>
-                            </configuration>
-                        </execution>
-<!-- Prepares the property pointing to the JaCoCo runtime agent which
- is passed as VM argument when Maven the Failsafe plugin is executed. -->
-                        <execution>
-                            <id>pre-integration-test</id>
-                            <phase>pre-integration-test</phase>
-                            <goals>
-                                <goal>prepare-agent</goal>
-                            </goals>
-                            <configuration>
-                                <!-- Sets the path to the file which contains the execution data. -->
-                                <destFile>${project.build.directory}/coverage-reports/jacoco-it.exec</destFile>
-                                <!-- Sets the name of the property containing the settings for JaCoCo runtime agent. -->
-                                <propertyName>failsafeArgLine</propertyName>
-                            </configuration>
-                        </execution>
-<!-- Ensures that the code coverage report for integration tests after
- integration tests have been run. -->
-                        <execution>
-                            <id>post-integration-test</id>
-                            <phase>post-integration-test</phase>
-                            <goals>
-                                <goal>report</goal>
-                            </goals>
-                            <configuration>
-                                <!-- Sets the path to the file which contains the execution data. -->
-                                <dataFile>${project.build.directory}/coverage-reports/jacoco-it.exec</dataFile>
-                                <!-- Sets the output directory for the code coverage report. -->
-                                <outputDirectory>${project.reporting.outputDirectory}/jacoco-it</outputDirectory>
-                            </configuration>
-                        </execution>
-                    </executions>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-surefire-plugin</artifactId>
-                    <version>${maven-surefire-plugin.version}</version>
-                    <configuration>
-                        <argLine>${surefireArgLine}</argLine>
-                        <excludes>
-                        <exclude>**/IT*.java</exclude>
-                        </excludes>
-                    </configuration>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-failsafe-plugin</artifactId>
-                    <version>${maven-failsafe-plugin.version}</version>
-                    <executions>
-                        <!-- Ensures that both integration-test and verify goals of the Failsafe Maven plugin are executed. -->
-                        <execution>
-                            <id>integration-tests</id>
-                            <goals>
-                                <goal>integration-test</goal>
-                                <goal>verify</goal>
-                            </goals>
-                            <configuration>
-                                <!-- Sets the VM argument line used when integration tests are run. -->
-                                <argLine>${failsafeArgLine}</argLine>
-                                <!-- Skips integration tests if the value of skip.integration.tests property is true -->
-                                <skipTests>${skip.integration.tests}</skipTests>
-                            </configuration>
-                        </execution>
-                    </executions>
-                </plugin>
-<!-- All of the antrun executions below are disabled by default. You must define the property associated with the "if".
- The definition of the antrun must be placed after the docker plugin as the executions make use of docker images. -->
-                <plugin>
-                    <artifactId>maven-antrun-plugin</artifactId>
-                    <version>${maven-antrun-plugin.version}</version>
-                    <executions>
-                        <execution>
-                            <id>Create Docker Tar File</id>
-                            <phase>deploy</phase>
-                            <goals>
-                                <goal>run</goal>
-                            </goals>
-                            <configuration>
-                                <target name="create_docker_tar_file" if="createDockerTar">
-                                    <echo>Creating docker tar file ${dockerImage.org}-${dockerImage.service}.tar</echo>
-                                    <exec executable="docker">
-                                        <arg value="save"/>
-                                        <arg value="${dockerImage.org}-${dockerImage.service}:${dockerImage.tag}"/>
-                                        <arg value="--output"/>
-                                        <arg value="${dockerImage.org}-${dockerImage.service}.tar"/>
-                                   </exec>
-                                </target>
-                            </configuration>
-                        </execution>
-                        <execution>
-                            <id>Compress Docker Tar File</id>
-                            <phase>deploy</phase>
-                            <goals>
-                                <goal>run</goal>
-                            </goals>
-                            <configuration>
-                                <target name="compress_docker_tar_file" if="createDockerTar">
-                                    <echo>Creating docker tar file ${dockerImage.org}-${dockerImage.service}.tar.gz</echo>
-                                    <exec executable="gzip">
-                                        <arg value="${dockerImage.org}-${dockerImage.service}.tar"/>
-                                   </exec>
-                                </target>
-                            </configuration>
-                        </execution>
-                        <execution>
-                            <id>Upload Docker Tar File</id>
-                            <phase>deploy</phase>
-                            <goals>
-                                <goal>run</goal>
-                            </goals>
-                            <configuration>
-                                <target name="upload_docker_tar_file" if="uploadDockerTar">
-                                    <echo>Uploading compressed docker tar file ${dockerImage.org}-${dockerImage.service}.tar.gz</echo>
-                                    <echo>to the docker tar repository ${docker.tar.repository}</echo>
-                                    <exec executable="curl">
-                                        <arg value="-i"/>
-                                        <arg value="-v"/>
-                                        <arg value="-X"/>
-                                        <arg value="PUT"/>
-                                        <arg value="--upload-file"/>
-                                        <arg value="${dockerImage.org}-${project.artifactId}.tar.gz"/>
-                                        <arg value="${docker.tar.repository}/${dockerImage.org}-${project.artifactId}.tar.gz"/>
-                                   </exec>
-                                </target>
-                            </configuration>
-                        </execution>
-                        <!-- This execution must come last as it deletes images used in previous steps. -->
-                        <execution>
-                            <id>delete_docker_images</id>
-                            <phase>deploy</phase>
-                            <goals>
-                                <goal>run</goal>
-                            </goals>
-                            <configuration>
-                                <target name="delete_docker_images" if="deleteDockerImages">
-                                    <echo>Removing docker image ${dockerImage.org}-${dockerImage.service}:latest</echo>
-                                    <echo>Removing docker image ${docker.registry}/${dockerImage.org}-${dockerImage.service}:latest</echo>
-                                    <echo>Removing docker image ${docker.registry}/${dockerImage.org}-${dockerImage.service}:${dockerImage.tag}</echo>
-                                    <exec executable="docker">
-                                        <arg value="rmi"/>
-                                        <arg value="-f"/>
-                                        <arg value="${dockerImage.org}-${dockerImage.service}:${dockerImage.tag}"/>
-                                        <arg value="${docker.registry}/${dockerImage.org}-${dockerImage.service}:latest"/>
-                                        <arg value="${docker.registry}/${dockerImage.org}-${dockerImage.service}:${dockerImage.tag}"/>
-                                   </exec>
-                                </target>
-                            </configuration>
-                        </execution>
-                    </executions>
-                </plugin>
-                <plugin>
-                    <groupId>external.atlassian.jgitflow</groupId>
-                    <artifactId>jgitflow-maven-plugin</artifactId>
-                    <version>${external.atlassian.jgitflow.version}</version>
-                    <configuration>
-                        <flowInitContext>
-                            <masterBranchName>master</masterBranchName>
-                            <featureBranchPrefix>feature-</featureBranchPrefix>
-                            <releaseBranchPrefix>release-</releaseBranchPrefix>
-                            <hotfixBranchPrefix>hotfix-</hotfixBranchPrefix>
-                        </flowInitContext>
-                    </configuration>
-                </plugin>
-            </plugins>
-        </pluginManagement>
-	<plugins>
-            <plugin>
-                <groupId>external.atlassian.jgitflow</groupId>
-                <artifactId>jgitflow-maven-plugin</artifactId>
-            </plugin>
-	    <plugin>
-		<groupId>org.apache.maven.plugins</groupId>
-		<artifactId>maven-gpg-plugin</artifactId>
-	    </plugin>
-	</plugins>
-    </build>
+        <distributionManagement>
+                <snapshotRepository>
+                        <name>jfrog-snapshots</name>
+                        <id>oss-jfrog-artifactory-snapshots</id>
+                        <url>https://oss.jfrog.org/artifactory/oss-snapshot-local</url>
+                </snapshotRepository>
+        </distributionManagement>
 
-    <!-- Unless the docker.registry value is set docker images will not be tagged or pushed. -->
-    <profiles>
-        <profile>
-            <id>docker-push-toggle</id>
-            <activation>
-                <property>
-                    <name>!docker.registry</name>
-                </property>
-            </activation>
-            <properties>
-                <skipDockerTag>true</skipDockerTag>
-                <skipDockerPush>true</skipDockerPush>
-            </properties>
-        </profile>
-<!-- If the gpg.passphrase is passed on the command line enable signing.
- Signing can also be enabled by passing -DskipSigning=true.
- In the second case you will be prompted for the passphrase during the build. -->
-        <profile>
-            <id>sign-artifacts</id>
-            <activation>
-                <property>
-                    <name>gpg.passphrase</name>
-                </property>
-            </activation>
-            <properties>
-                <skipSigning>false</skipSigning>
-            </properties>
-        </profile>
-        <profile>
-            <id>publish-release</id>
-            <activation>
-                <property>
-                    <name>publish-release</name>
-                </property>
-            </activation>
-            <distributionManagement>
+        <repositories>
                 <repository>
-                    <name>bintray-maven-central-prepare</name>
-                    <id>bintray-dell-emc-cpsd-maven-central-prepare</id>
-                    <url>https://api.bintray.com/maven/dell-emc-cpsd/maven-central-prepare/initial-package</url>
+                        <name>bintray-maven-central-prepare</name>
+                        <id>bintray-dell-emc-cpsd-maven-central-prepare</id>
+                        <url>http://dl.bintray.com/dell-emc-cpsd/maven-central-prepare</url>
+                        <snapshots>
+                                <enabled>false</enabled>
+                        </snapshots>
                 </repository>
-            </distributionManagement>
-        </profile>
-    </profiles>
+                <repository>
+                        <name>jfrog-snapshots</name>
+                        <id>oss-jfrog-artifactory-snapshots</id>
+                        <url>https://oss.jfrog.org/artifactory/oss-snapshot-local</url>
+                        <snapshots>
+                                <enabled>true</enabled>
+                        </snapshots>
+                </repository>
+        </repositories>
+        <pluginRepositories>
+                <pluginRepository>
+                        <name>bintray-maven-central-prepare</name>
+                        <id>bintray-dell-emc-cpsd-maven-central-prepare</id>
+                        <url>http://dl.bintray.com/dell-emc-cpsd/maven-central-prepare</url>
+                        <snapshots>
+                                <enabled>false</enabled>
+                        </snapshots>
+                </pluginRepository>
+                <pluginRepository>
+                        <name>jfrog-snapshots</name>
+                        <id>oss-jfrog-artifactory-snapshots</id>
+                        <url>https://oss.jfrog.org/artifactory/oss-snapshot-local</url>
+                        <snapshots>
+                                <enabled>true</enabled>
+                        </snapshots>
+                </pluginRepository>
+        </pluginRepositories>
+
+        <build>
+                <pluginManagement>
+                        <plugins>
+                                <plugin>
+                                        <groupId>org.apache.maven.plugins</groupId>
+                                        <artifactId>maven-source-plugin</artifactId>
+                                        <version>${maven-source-plugin.version}</version>
+                                        <executions>
+                                                <execution>
+                                                        <id>attach-sources</id>
+                                                        <phase>package</phase>
+                                                        <goals>
+                                                                <goal>jar-no-fork</goal>
+                                                        </goals>
+                                                </execution>
+                                        </executions>
+                                        <configuration>
+                                                <skip>${skipJavasource}</skip>
+                                        </configuration>
+                                </plugin>
+                                <plugin>
+                                        <groupId>org.apache.maven.plugins</groupId>
+                                        <artifactId>maven-javadoc-plugin</artifactId>
+                                        <version>${maven-javadoc-plugin.version}</version>
+                                        <executions>
+                                                <execution>
+                                                        <id>attach-javadocs</id>
+                                                        <phase>package</phase>
+                                                        <goals>
+                                                                <goal>jar</goal>
+                                                        </goals>
+                                                </execution>
+                                        </executions>
+                                        <configuration>
+                                                <skip>${skipJavadoc}</skip>
+                                        </configuration>
+                                </plugin>
+                                <plugin>
+                                        <groupId>org.apache.maven.plugins</groupId>
+                                        <artifactId>maven-gpg-plugin</artifactId>
+                                        <version>${maven-gpg-plugin.version}</version>
+                                        <executions>
+                                                <execution>
+                                                        <id>sign-artifacts</id>
+                                                        <phase>verify</phase>
+                                                        <goals>
+                                                                <goal>sign</goal>
+                                                        </goals>
+                                                </execution>
+                                        </executions>
+                                        <configuration>
+                                                <skip>${skipSigning}</skip>
+                                        </configuration>
+                                </plugin>
+                                <plugin>
+                                        <groupId>com.spotify</groupId>
+                                        <artifactId>docker-maven-plugin</artifactId>
+                                        <version>${docker-maven-plugin.version}</version>
+                                        <executions>
+                                                <execution>
+                                                        <id>build-image</id>
+                                                        <phase>package</phase>
+                                                        <goals>
+                                                                <goal>build</goal>
+                                                        </goals>
+                                                        <configuration>
+                                                                <imageName>${dockerImage.org}-${dockerImage.service}:${dockerImage.tag}</imageName>
+                                                        </configuration>
+                                                </execution>
+                                                <execution>
+                                                        <id>tag-image</id>
+                                                        <phase>deploy</phase>
+                                                        <goals>
+                                                                <goal>tag</goal>
+                                                        </goals>
+                                                        <configuration>
+                                                                <image>${dockerImage.org}-${dockerImage.service}:${dockerImage.tag}</image>
+                                                                <newName>${docker.registry}/${dockerImage.org}-${dockerImage.service}:${dockerImage.tag}</newName>
+                                                        </configuration>
+                                                </execution>
+                                                <execution>
+                                                        <id>tag-image-latest</id>
+                                                        <phase>deploy</phase>
+                                                        <goals>
+                                                                <goal>tag</goal>
+                                                        </goals>
+                                                        <configuration>
+                                                                <image>${dockerImage.org}-${dockerImage.service}:${dockerImage.tag}</image>
+                                                                <newName>${docker.registry}/${dockerImage.org}-${dockerImage.service}:latest</newName>
+                                                        </configuration>
+                                                </execution>
+                                                <execution>
+                                                        <id>push-image</id>
+                                                        <phase>deploy</phase>
+                                                        <goals>
+                                                                <goal>push</goal>
+                                                        </goals>
+                                                        <configuration>
+                                                                <imageName>${docker.registry}/${dockerImage.org}-${dockerImage.service}:${dockerImage.tag}</imageName>
+                                                        </configuration>
+                                                </execution>
+                                                <execution>
+                                                        <id>push-image-latest</id>
+                                                        <phase>deploy</phase>
+                                                        <goals>
+                                                                <goal>push</goal>
+                                                        </goals>
+                                                        <configuration>
+                                                                <imageName>${docker.registry}/${dockerImage.org}-${dockerImage.service}:latest</imageName>
+                                                        </configuration>
+                                                </execution>
+                                        </executions>
+                                </plugin>
+                                <plugin>
+                                        <groupId>org.jacoco</groupId>
+                                        <artifactId>jacoco-maven-plugin</artifactId>
+                                        <version>${jacoco-maven-plugin.version}</version>
+                                        <executions>
+                                                <!-- Prepares the property pointing to the JaCoCo runtime agent which 
+                                                        is passed as VM argument when Maven the Surefire plugin is executed. -->
+                                                <execution>
+                                                        <id>pre-unit-test</id>
+                                                        <goals>
+                                                                <goal>prepare-agent</goal>
+                                                        </goals>
+                                                        <configuration>
+                                                                <!-- Sets the path to the file which contains the execution data. -->
+                                                                <destFile>${project.build.directory}/coverage-reports/jacoco-ut.exec</destFile>
+                                                                <!-- Sets the name of the property containing the settings for JaCoCo 
+                                                                        runtime agent. -->
+                                                                <propertyName>surefireArgLine</propertyName>
+                                                        </configuration>
+                                                </execution>
+                                                <!-- Ensures that the code coverage report for unit tests is created 
+                                                        after unit tests have been run. -->
+                                                <execution>
+                                                        <id>post-unit-test</id>
+                                                        <phase>test</phase>
+                                                        <goals>
+                                                                <goal>report</goal>
+                                                        </goals>
+                                                        <configuration>
+                                                                <!-- Sets the path to the file which contains the execution data. -->
+                                                                <dataFile>${project.build.directory}/coverage-reports/jacoco-ut.exec</dataFile>
+                                                                <!-- Sets the output directory for the code coverage report. -->
+                                                                <outputDirectory>${project.reporting.outputDirectory}/jacoco-ut</outputDirectory>
+                                                        </configuration>
+                                                </execution>
+                                                <!-- Prepares the property pointing to the JaCoCo runtime agent which 
+                                                        is passed as VM argument when Maven the Failsafe plugin is executed. -->
+                                                <execution>
+                                                        <id>pre-integration-test</id>
+                                                        <phase>pre-integration-test</phase>
+                                                        <goals>
+                                                                <goal>prepare-agent</goal>
+                                                        </goals>
+                                                        <configuration>
+                                                                <!-- Sets the path to the file which contains the execution data. -->
+                                                                <destFile>${project.build.directory}/coverage-reports/jacoco-it.exec</destFile>
+                                                                <!-- Sets the name of the property containing the settings for JaCoCo 
+                                                                        runtime agent. -->
+                                                                <propertyName>failsafeArgLine</propertyName>
+                                                        </configuration>
+                                                </execution>
+                                                <!-- Ensures that the code coverage report for integration tests after 
+                                                        integration tests have been run. -->
+                                                <execution>
+                                                        <id>post-integration-test</id>
+                                                        <phase>post-integration-test</phase>
+                                                        <goals>
+                                                                <goal>report</goal>
+                                                        </goals>
+                                                        <configuration>
+                                                                <!-- Sets the path to the file which contains the execution data. -->
+                                                                <dataFile>${project.build.directory}/coverage-reports/jacoco-it.exec</dataFile>
+                                                                <!-- Sets the output directory for the code coverage report. -->
+                                                                <outputDirectory>${project.reporting.outputDirectory}/jacoco-it</outputDirectory>
+                                                        </configuration>
+                                                </execution>
+                                        </executions>
+                                </plugin>
+                                <plugin>
+                                        <groupId>org.apache.maven.plugins</groupId>
+                                        <artifactId>maven-surefire-plugin</artifactId>
+                                        <version>${maven-surefire-plugin.version}</version>
+                                        <configuration>
+                                                <argLine>${surefireArgLine}</argLine>
+                                                <excludes>
+                                                        <exclude>**/IT*.java</exclude>
+                                                </excludes>
+                                        </configuration>
+                                </plugin>
+                                <plugin>
+                                        <groupId>org.apache.maven.plugins</groupId>
+                                        <artifactId>maven-failsafe-plugin</artifactId>
+                                        <version>${maven-failsafe-plugin.version}</version>
+                                        <executions>
+                                                <!-- Ensures that both integration-test and verify goals of the Failsafe 
+                                                        Maven plugin are executed. -->
+                                                <execution>
+                                                        <id>integration-tests</id>
+                                                        <goals>
+                                                                <goal>integration-test</goal>
+                                                                <goal>verify</goal>
+                                                        </goals>
+                                                        <configuration>
+                                                                <!-- Sets the VM argument line used when integration tests are run. -->
+                                                                <argLine>${failsafeArgLine}</argLine>
+                                                                <!-- Skips integration tests if the value of skip.integration.tests 
+                                                                        property is true -->
+                                                                <skipTests>${skip.integration.tests}</skipTests>
+                                                        </configuration>
+                                                </execution>
+                                        </executions>
+                                </plugin>
+                                <!-- All of the antrun executions below are disabled by default. You 
+                                        must define the property associated with the "if". The definition of the 
+                                        antrun must be placed after the docker plugin as the executions make use 
+                                        of docker images. -->
+                                <plugin>
+                                        <artifactId>maven-antrun-plugin</artifactId>
+                                        <version>${maven-antrun-plugin.version}</version>
+                                        <executions>
+                                                <execution>
+                                                        <id>Create Docker Tar File</id>
+                                                        <phase>deploy</phase>
+                                                        <goals>
+                                                                <goal>run</goal>
+                                                        </goals>
+                                                        <configuration>
+                                                                <target name="create_docker_tar_file" if="createDockerTar">
+                                                                        <echo>Creating docker tar file
+                                                                                ${dockerImage.org}-${dockerImage.service}.tar</echo>
+                                                                        <exec executable="docker">
+                                                                                <arg value="save" />
+                                                                                <arg
+                                                                                        value="${dockerImage.org}-${dockerImage.service}:${dockerImage.tag}" />
+                                                                                <arg value="--output" />
+                                                                                <arg value="${dockerImage.org}-${dockerImage.service}.tar" />
+                                                                        </exec>
+                                                                </target>
+                                                        </configuration>
+                                                </execution>
+                                                <execution>
+                                                        <id>Compress Docker Tar File</id>
+                                                        <phase>deploy</phase>
+                                                        <goals>
+                                                                <goal>run</goal>
+                                                        </goals>
+                                                        <configuration>
+                                                                <target name="compress_docker_tar_file" if="createDockerTar">
+                                                                        <echo>Creating docker tar file
+                                                                                ${dockerImage.org}-${dockerImage.service}.tar.gz</echo>
+                                                                        <exec executable="gzip">
+                                                                                <arg value="${dockerImage.org}-${dockerImage.service}.tar" />
+                                                                        </exec>
+                                                                </target>
+                                                        </configuration>
+                                                </execution>
+                                                <execution>
+                                                        <id>Upload Docker Tar File</id>
+                                                        <phase>deploy</phase>
+                                                        <goals>
+                                                                <goal>run</goal>
+                                                        </goals>
+                                                        <configuration>
+                                                                <target name="upload_docker_tar_file" if="uploadDockerTar">
+                                                                        <echo>Uploading compressed docker tar file
+                                                                                ${dockerImage.org}-${dockerImage.service}.tar.gz</echo>
+                                                                        <echo>to the docker tar repository ${docker.tar.repository}</echo>
+                                                                        <exec executable="curl">
+                                                                                <arg value="-i" />
+                                                                                <arg value="-v" />
+                                                                                <arg value="-X" />
+                                                                                <arg value="PUT" />
+                                                                                <arg value="--upload-file" />
+                                                                                <arg value="${dockerImage.org}-${project.artifactId}.tar.gz" />
+                                                                                <arg
+                                                                                        value="${docker.tar.repository}/${dockerImage.org}-${project.artifactId}.tar.gz" />
+                                                                        </exec>
+                                                                </target>
+                                                        </configuration>
+                                                </execution>
+                                                <!-- This execution must come last as it deletes images used in previous 
+                                                        steps. -->
+                                                <execution>
+                                                        <id>delete_docker_images</id>
+                                                        <phase>deploy</phase>
+                                                        <goals>
+                                                                <goal>run</goal>
+                                                        </goals>
+                                                        <configuration>
+                                                                <target name="delete_docker_images" if="deleteDockerImages">
+                                                                        <echo>Removing docker image
+                                                                                ${dockerImage.org}-${dockerImage.service}:latest</echo>
+                                                                        <echo>Removing docker image
+                                                                                ${docker.registry}/${dockerImage.org}-${dockerImage.service}:latest</echo>
+                                                                        <echo>Removing docker image
+                                                                                ${docker.registry}/${dockerImage.org}-${dockerImage.service}:${dockerImage.tag}</echo>
+                                                                        <exec executable="docker">
+                                                                                <arg value="rmi" />
+                                                                                <arg value="-f" />
+                                                                                <arg
+                                                                                        value="${dockerImage.org}-${dockerImage.service}:${dockerImage.tag}" />
+                                                                                <arg
+                                                                                        value="${docker.registry}/${dockerImage.org}-${dockerImage.service}:latest" />
+                                                                                <arg
+                                                                                        value="${docker.registry}/${dockerImage.org}-${dockerImage.service}:${dockerImage.tag}" />
+                                                                        </exec>
+                                                                </target>
+                                                        </configuration>
+                                                </execution>
+                                        </executions>
+                                </plugin>
+                                <plugin>
+                                        <groupId>external.atlassian.jgitflow</groupId>
+                                        <artifactId>jgitflow-maven-plugin</artifactId>
+                                        <version>${external.atlassian.jgitflow.version}</version>
+                                        <configuration>
+                                                <flowInitContext>
+                                                        <masterBranchName>master</masterBranchName>
+                                                        <releaseBranchPrefix>stable/</releaseBranchPrefix>
+                                                </flowInitContext>
+                                        </configuration>
+                                </plugin>
+                        </plugins>
+                </pluginManagement>
+                <plugins>
+                        <plugin>
+                                <groupId>external.atlassian.jgitflow</groupId>
+                                <artifactId>jgitflow-maven-plugin</artifactId>
+                        </plugin>
+                        <plugin>
+                                <groupId>org.apache.maven.plugins</groupId>
+                                <artifactId>maven-gpg-plugin</artifactId>
+                        </plugin>
+                </plugins>
+        </build>
+
+        <!-- Unless the docker.registry value is set docker images will not be tagged 
+                or pushed. -->
+        <profiles>
+                <profile>
+                        <id>docker-push-toggle</id>
+                        <activation>
+                                <property>
+                                        <name>!docker.registry</name>
+                                </property>
+                        </activation>
+                        <properties>
+                                <skipDockerTag>true</skipDockerTag>
+                                <skipDockerPush>true</skipDockerPush>
+                        </properties>
+                </profile>
+                <!-- If the gpg.passphrase is passed on the command line enable signing. 
+                        Signing can also be enabled by passing -DskipSigning=true. In the second 
+                        case you will be prompted for the passphrase during the build. -->
+                <profile>
+                        <id>sign-artifacts</id>
+                        <activation>
+                                <property>
+                                        <name>gpg.passphrase</name>
+                                </property>
+                        </activation>
+                        <properties>
+                                <skipSigning>false</skipSigning>
+                        </properties>
+                </profile>
+                <profile>
+                        <id>publish-release</id>
+                        <activation>
+                                <property>
+                                        <name>publish-release</name>
+                                </property>
+                        </activation>
+                        <distributionManagement>
+                                <repository>
+                                        <name>bintray-maven-central-prepare</name>
+                                        <id>bintray-dell-emc-cpsd-maven-central-prepare</id>
+                                        <url>https://api.bintray.com/maven/dell-emc-cpsd/maven-central-prepare/initial-package</url>
+                                </repository>
+                        </distributionManagement>
+                </profile>
+        </profiles>
 </project>
