@@ -1,6 +1,8 @@
-DEPLOY_PROFILE = ""
+DEPLOY_OPTIONS = ""
 if (env.BRANCH_NAME ==~ /stable.*/) {
-    DEPLOY_PROFILE = "-Ppublish-release"
+    withCredentials([string(credentialsId: 'GPG-Dell-Key', variable: 'GPG_PASSPHRASE')]) {
+        DEPLOY_OPTIONS = "-Ppublish-release -Dgpg.passphrase='${GPG_PASSPHRASE}' -DskipJavadoc=false -DskipJavasource=false"
+    }
 }
 
 pipeline {
@@ -41,7 +43,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                sh "mvn deploy ${DEPLOY_PROFILE} -Dmaven.repo.local=.repo -DskipTests=true -DskipITs=true"
+                sh "mvn deploy ${DEPLOY_OPTIONS} -Dmaven.repo.local=.repo -DskipTests=true -DskipITs=true"
             }
         }
         stage('NexB Scan') {
