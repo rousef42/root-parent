@@ -7,7 +7,15 @@
 # root-parent
 
 ## Description
-This repository contains all repository information for Maven Central and configuration settings and properties for associated plugins such as Maven AntRun, Java Code Coverage Library, Maven Docker, Maven Failsafe and Maven Surefire.
+This repository is a convenience project, which contains all the important base configuration settings and properties that other Symphony repositories require. 
+
+It is included by default in every new Symphony repo, and covers the following:
+- Maven AntRun
+- Java Code Coverage Library
+- Maven Docker
+- Maven Failsafe 
+- Maven Surefire
+- Repository information for Maven Central
 
 ## Documentation
 You can find additional documentation for Project Symphony at [dellemc-symphony.readthedocs.io](https://dellemc-symphony.readthedocs.io).
