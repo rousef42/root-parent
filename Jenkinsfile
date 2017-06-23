@@ -43,7 +43,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                sh "mvn deploy ${DEPLOY_OPTIONS} -Dmaven.repo.local=.repo -DskipTests=true -DskipITs=true"
+                sh "#!/bin/bash -e \n mvn deploy ${DEPLOY_OPTIONS} -Dmaven.repo.local=.repo -DskipTests=true -DskipITs=true"
             }
         }
         stage('NexB Scan') {
