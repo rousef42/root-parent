@@ -2,8 +2,10 @@
 [![Build Status](https://travis-ci.org/dellemc-symphony/root-parent.svg?branch=master)](https://travis-ci.org/dellemc-symphony/root-parent)
 [![Slack](http://community.codedellemc.com/badge.svg)](https://codecommunity.slack.com/messages/symphony)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.dell.cpsd/root-parent/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.dell.cpsd/root-parent)
-<!-- [![Semver](http://img.shields.io/SemVer/2.0.0.png)](http://semver.org/spec/v2.0.0.html) -->
-
+[ ![Download](https://api.bintray.com/packages/dell-emc-cpsd/git-hub/root-parent/images/download.svg?version=0.2.4) ](https://bintray.com/dell-emc-cpsd/git-hub/root-parent/0.2.4/link)
+[![GitHub issues](https://img.shields.io/github/issues/dellemc-symphony/root-parent.svg)](https://github.com/dellemc-symphony/root-parent/issues?q=is%3Aopen+is%3Aissue)
+[![GitHub pull requests](https://img.shields.io/github/issues-pr/dellemc-symphony/root-parent.svg)](https://github.com/dellemc-symphony/root-parent/pulls?q=is%3Aopen+is%3Apr)
+[![Semver](http://img.shields.io/SemVer/2.0.0.png)](http://semver.org/spec/v2.0.0.html)
 
 # root-parent
 
