@@ -124,6 +124,11 @@
                                 <enabled>true</enabled>
                         </snapshots>
                 </repository>
+                <repository>
+                        <name>bintray-plugins</name>
+                        <id>bintray-palantir-releases</id>
+                        <url>http://palantir.bintray.com/releases</url>
+               </repository>
         </repositories>
         <pluginRepositories>
                 <pluginRepository>
