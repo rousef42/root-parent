@@ -8,11 +8,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/)
 
 ## [1.0.1] - 2017-07-25
 ### Added
- - Additional public repository added to repository properties [palantir/releases](http://palantir.bintray.com/releases)
+ - Additional properties [palantir/releases](http://palantir.bintray.com/releases) for added public repository
 
 ## [1.0.0] - 2017-06-23
 ### Added
- - Creation of the initial Changelog file
+ - Creation of the initial changelog file
 ### Changed
  - Modification to build stage and procedure
  - Update to readme format and additional context
