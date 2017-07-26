@@ -5,12 +5,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/)
 
 ## [Unreleased]
+
+## [1.0.1] - 2017-07-25
 ### Added
- - Added a release repository name and location to public [palantir/releases](http://palantir.bintray.com/releases)
+ - Additional properties [palantir/releases](http://palantir.bintray.com/releases) for added public repository
 
 ## [1.0.0] - 2017-06-23
 ### Added
- - Creation of the initial Changelog file
+ - Creation of the initial changelog file
 ### Changed
  - Modification to build stage and procedure
  - Update to readme format and additional context
@@ -38,7 +40,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/)
 ### Added
  - Initial addition of the distribution management and properties
 
-[Unreleased]: https://github.com/dellemc-symphony/root-parent/compare/1.0.0...HEAD
+[Unreleased]: https://github.com/dellemc-symphony/root-parent/compare/1.0.1...HEAD
+[1.0.1]: https://github.com/dellemc-symphony/root-parent/compare/1.0.0...1.0.1
 [1.0.0]: https://github.com/dellemc-symphony/root-parent/compare/0.2.4...1.0.0
 [0.2.4]: https://github.com/dellemc-symphony/root-parent/compare/0.2.3...0.2.4
 
