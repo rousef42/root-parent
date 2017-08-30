@@ -39,6 +39,11 @@ pipeline {
                 sh "mvn verify -Dmaven.repo.local=.repo"
             }
         }
+	stage('PasswordScan') {
+            steps {
+                doPwScan()
+            }
+        }
         stage('Deploy') {
             steps {
                 script {
@@ -63,12 +68,6 @@ pipeline {
                 doThirdPartyAudit()
             }
         }
-        stage('PasswordScan') {
-            steps {
-                doPwScan()
-            }
-        }
-
         stage('Github Release') {
             steps {
                 githubRelease()
