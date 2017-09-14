@@ -1,7 +1,7 @@
 pipeline {
     parameters {
        choice(choices: 'ON\nOFF', description: 'Please select appropriate flag', name: 'Deploy_Stage')
-    }	
+    }
     agent {
         node {
             label 'maven-builder'
@@ -25,36 +25,30 @@ pipeline {
         stage('Checkout') {
             steps {
                 doCheckout()
-	        }
-	    }
-	stage('TravisCI Linter') {
+            }
+        }
+        stage('TravisCI Linter') {
             steps {
                 doTravisLint()
             }
         }    
-        stage('Compile') {
+        stage('Build') {
             steps {
-                sh "mvn clean install -Dmaven.repo.local=.repo -DskipTests=true -DskipITs=true"
+                sh "mvn clean install -Dmaven.repo.local=.repo"
             }
         }
-        stage('Junit Testing') {
-            steps {
-                sh "mvn verify -Dmaven.repo.local=.repo"
-            }
-        }
-	stage('PasswordScan') {
+        stage('PasswordScan') {
             steps {
                 doPwScan()
             }
         }
-       stage('Deploy') {
-             steps {
-               doMvnDeploy()
-             }
+        stage('Deploy') {
+            steps {
+                doMvnDeploy()
+            }
         }
         stage('NexB Scan') {
             steps {
-                sh 'rm -rf .repo'
                 doNexbScanning()
             }
         }
