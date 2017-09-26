@@ -7,7 +7,7 @@
 
         <groupId>com.dell.cpsd</groupId>
         <artifactId>root-parent</artifactId>
-        <version>1.0.1</version>
+        <version>1.1.0</version>
         <packaging>pom</packaging>
 
         <name>Parent Project</name>
@@ -522,6 +522,21 @@
                         <activation>
                                 <property>
                                         <name>publish-release</name>
+                                </property>
+                        </activation>
+                        <distributionManagement>
+                                <repository>
+                                        <name>sonatype-maven-staging-deploy</name>
+                                        <id>ossrh</id>
+                                        <url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
+                                </repository>
+                        </distributionManagement>
+                </profile>
+                <profile>
+                        <id>publish-bintray-release</id>
+                        <activation>
+                                <property>
+                                        <name>publish-bintray-release</name>
                                 </property>
                         </activation>
                         <distributionManagement>
