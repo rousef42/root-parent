@@ -12,7 +12,7 @@
 
         <name>Parent Project</name>
         <description>Parent pom for Dell CPSD Symphony</description>
-        <url>https://github.com/dellemc-symphony/root-parent</url>
+        <url>https://github.com/rousef42/root-parent</url>
 
         <licenses>
                 <license>
@@ -61,9 +61,9 @@
         </developers>
 
         <scm>
-                <connection>scm:git:https://github.com/dellemc-symphony/root-parent.git</connection>
-                <developerConnection>scm:git:https://github.com/dellemc-symphony/root-parent.git</developerConnection>
-                <url>https://github.com/dellemc-symphony/root-parent/tree/master</url>
+                <connection>scm:git:https://github.com/rousef42/root-parent.git</connection>
+                <developerConnection>scm:git:https://github.com/rousef42/root-parent.git</developerConnection>
+                <url>https://github.com/rousef42/root-parent/tree/master</url>
                 <tag>HEAD</tag>
         </scm>
 
